@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Settings</title>
+</head>
+<body>
+
+  <h1>Settings</h1>
+
+  <label>
+    Target Attendance (%):
+    <input type="number" id="target" min="50" max="100" />
+  </label>
+
+  <br><br>
+
+  <label>
+    Semester Start:
+    <input type="date" id="start" />
+  </label>
+
+  <br><br>
+
+  <label>
+    Semester End:
+    <input type="date" id="end" />
+  </label>
+
+  <br><br>
+
+  <button id="save">Save Changes</button>
+  <button id="reset">Reset Timetable</button>
+  <button id="logout">Logout</button>
+
+  <script type="module" src="js/settings.js"></script>
+</body>
+</html>

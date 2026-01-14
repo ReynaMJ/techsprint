@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Timetable</title>
+  <style>
+    .grid { display: flex; gap: 20px; }
+    .day { border: 1px solid #ccc; padding: 10px; width: 150px; }
+    .class { margin: 5px 0; }
+  </style>
+</head>
+<body>
+
+  <h1>Weekly Timetable</h1>
+
+  <form id="addForm">
+    <input placeholder="Subject" id="subject" required />
+    <select id="day">
+      <option>Monday</option>
+      <option>Tuesday</option>
+      <option>Wednesday</option>
+      <option>Thursday</option>
+      <option>Friday</option>
+      <option>Saturday</option>
+    </select>
+    <input placeholder="Time (e.g. 10–11)" id="time" required />
+    <button>Add Class</button>
+  </form>
+
+  <div class="grid" id="grid"></div>
+
+  <script type="module" src="js/timetable.js"></script>
+</body>
+</html>

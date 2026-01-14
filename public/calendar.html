@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calendar</title>
+  <style>
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+    }
+    .day {
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+    }
+    .green { background: #c8f7c5; }
+    .red { background: #f7c5c5; }
+    .blue { background: #c5d9f7; }
+    .gray { background: #eee; }
+    .yellow { background: #fff3b0; }
+  </style>
+</head>
+<body>
+
+  <h1>Attendance Calendar</h1>
+
+  <div class="calendar" id="calendar"></div>
+
+  <p>
+    🟢 Present &nbsp;
+    🔴 Absent &nbsp;
+    🔵 Duty &nbsp;
+    ⚪ Cancelled &nbsp;
+    🟡 Mixed
+  </p>
+
+  <script type="module" src="js/calendar.js"></script>
+</body>
+</html>

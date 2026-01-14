@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login / Signup</title>
+</head>
+<body>
+  <h2>Login</h2>
+
+  <input id="email" placeholder="Email">
+  <input id="password" type="password" placeholder="Password">
+
+  <button id="loginBtn">Login</button>
+  <button id="signupBtn">Signup</button>
+
+  <script type="module">
+    import { login, signup } from "./js/auth.js";
+
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+
+    document.getElementById("loginBtn").onclick = async () => {
+      try {
+        await login(email.value, password.value);
+        location.href = "home.html";
+      } catch (e) {
+        alert(e.message);
+      }
+    };
+
+    document.getElementById("signupBtn").onclick = async () => {
+      try {
+        await signup(email.value, password.value);
+        location.href = "setup.html";
+      } catch (e) {
+        alert(e.message);
+      }
+    };
+  </script>
+</body>
+</html>
