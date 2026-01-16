@@ -1,33 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Timetable</title>
-  <style>
-    .grid { display: flex; gap: 20px; }
-    .day { border: 1px solid #ccc; padding: 10px; width: 150px; }
-    .class { margin: 5px 0; }
-  </style>
+  <meta charset="UTF-8">
+  <title>Attendance Dashboard</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<div class="timetable-heading">
   <h1>Weekly Timetable</h1>
+  <p>Semester Schedule Overview</p>
+</div>
 
-  <form id="addForm">
-    <input placeholder="Subject" id="subject" required />
-    <select id="day">
-      <option>Monday</option>
-      <option>Tuesday</option>
-      <option>Wednesday</option>
-      <option>Thursday</option>
-      <option>Friday</option>
-      <option>Saturday</option>
-    </select>
-    <input placeholder="Time (e.g. 10–11)" id="time" required />
-    <button>Add Class</button>
-  </form>
+<div class="table-wrapper">
+  <table class="timetable">
+    <thead>
 
-  <div class="grid" id="grid"></div>
+      <tr>
+        <th><span class="period-num">Days</span></th>
+        <th><span class="period-num">01</span></th>
+        <th><span class="period-num">02</span></th>
+        <th><span class="period-num">03</span></th>
+        <th><span class="period-num">04</span></th>
+        <th><span class="period-num">05</span></th>
+        <th><span class="period-num">06</span></th>
+      </tr>
 
+      <tr>
+        <th><span class="period-num">MONDAY</span></th>
+        <th><span data-subject="OS LAB">LAB</span></th>
+        <th><span data-subject="OS LAB">LAB</span></th>
+        <th><span data-subject="OS LAB">LAB</span></th>
+        <th><span data-subject="EE">EE</span></th>
+        <th><span data-subject="HON">HON</span></th>
+        <th><span data-subject="HON">HON</span></th>
+      </tr>
+
+      <tr>
+        <th><span class="period-num">TUESDAY</span></th>
+        <th><span data-subject="OS">OS</span></th>
+        <th><span data-subject="OS">OS</span></th>
+        <th><span data-subject="DBMS">DBMS</span></th>
+        <th><span data-subject="EE">EE</span></th>
+        <th><span data-subject="DBMS">DBMS</span></th>
+        <th><span data-subject="MATHS">MATHS</span></th>
+      </tr>
+
+      <tr>
+        <th><span class="period-num">WEDNESDAY</span></th>
+        <th><span data-subject="MATHS">MATHS</span></th>
+        <th><span data-subject="EE">EE</span></th>
+        <th><span data-subject="OS">OS</span></th>
+        <th><span data-subject="DBMS">DBMS</span></th>
+        <th><span data-subject="HON">HON</span></th>
+        <th><span data-subject="HON">HON</span></th>
+      </tr>
+
+      <tr>
+        <th><span class="period-num">THURSDAY</span></th>
+        <th><span data-subject="DBMS">DBMS</span></th>
+        <th><span data-subject="DBMS">DBMS</span></th>
+        <th><span data-subject="OS">OS</span></th>
+        <th><span data-subject="MATHS">MATHS</span></th>
+        <th><span data-subject="EE">EE</span></th>
+        <th><span data-subject="HON">HON</span></th>
+      </tr>
+
+      <tr>
+        <th><span class="period-num">FRIDAY</span></th>
+        <th><span data-subject="HON">HON</span></th>
+        <th><span data-subject="MATHS">MATHS</span></th>
+        <th><span data-subject="EE">EE</span></th>
+        <th><span data-subject="OS">OS</span></th>
+        <th><span data-subject="DBMS">DBMS</span></th>
+        <th><span data-subject="DBMS">DBMS</span></th>
+      </tr>
+
+    </thead>
+  </table>
+</div>
   <script type="module" src="js/timetable.js"></script>
 </body>
 </html>
