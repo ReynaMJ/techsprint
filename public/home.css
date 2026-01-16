@@ -1,0 +1,497 @@
+
+:root {
+  --primary: #7c3aed;
+  --primary-glow: rgba(124, 58, 237, 0.4);
+  --bg-dark: #050507;
+  --card-bg: rgba(17, 17, 25, 0.7);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --text-main: #ffffff;
+  --text-dim: #94a3b8;
+  --gold-glow: rgba(212, 175, 55, 0.15); /* Soft Metallic Gold */
+  --gold-accent: #D4AF37
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  background: var(--bg-dark);
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+.background-glow {
+  position: fixed;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.12), transparent 70%);
+  top: -20vw;
+  left: -10vw;
+  filter: blur(100px);
+  z-index: -1;
+}
+
+.background-glow.secondary {
+  top: 40vh;
+  right: -10vw;
+  left: auto;
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.08), transparent 70%);
+}
+
+.app-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 4rem;
+}
+
+.logo {
+  font-size: 4rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.logo .accent {
+  color: var(--primary);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.status-pill {
+  font-size: 0.75rem;
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.nav-btn {
+  background: var(--text-main);
+  color: var(--bg-dark);
+  border: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.hero-content {
+  margin-bottom: 4rem;
+}
+
+.welcome-badge {
+  color: var(--primary);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+
+.hero-content h2 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+
+.subtitle {
+  color: var(--text-dim);
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+.hero-content,
+.hero-content h2,
+.hero-content .welcome-badge,
+.hero-content .subtitle {
+  text-align: left !important;
+}
+.date-container {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+input[type="date"] {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  outline: none;
+  font-weight: 600;
+}
+
+/* Timetable Section */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+.day-tag {
+  background: var(--border-color);
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+.table-wrapper {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.timetable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 10px;
+}
+
+.timetable th {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 2rem 1rem;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+.timetable th:hover {
+  transform: translateY(-5px);
+  background: rgba(124, 58, 237, 0.05);
+  border-color: var(--primary);
+  color:green;
+}
+
+.period-num {
+  font-size: 0.7rem;
+  color: var(--primary);
+  opacity: 0.8;
+  text-transform: uppercase;
+}
+
+.break-col {
+  background: transparent !important;
+  border: 1px dashed var(--border-color) !important;
+  color: var(--text-dim) !important;
+}
+
+.break-text {
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .hero-content h2 { font-size: 2.5rem; }
+  .table-wrapper { overflow-x: auto; }
+}
+.hero-header {
+  position: relative;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.coolors-text {
+  font-size: 70px;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
+.coolors-text span {
+  display: inline-block;
+  color: rgb(35, 35, 35);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+/* Active hover state */
+.coolors-text span.active {
+  animation:
+    coolorsShake 0.35s ease,
+    colorHold 3.8s ease forwards;
+}
+
+/* Subtle Coolors-style jitter */
+@keyframes coolorsShake {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(1.5px, -1px); }
+  50%  { transform: translate(-1px, 1px); }
+  75%  { transform: translate(1px, 1px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Hold color then fade back */
+@keyframes colorHold {
+  0% {
+    text-shadow: 0 0 6px currentColor;
+  }
+  85% {
+    text-shadow: 0 0 6px currentColor;
+  }
+  100% {
+    color: rgb(46, 46, 46);
+    text-shadow: none;
+  }
+}
+
+/* The 'Success' state for the cards */
+.timetable th.attended {
+  background: rgba(16, 185, 129, 0.2) !important;
+  border-color: #10b981 !important;
+  color: #10b981 !important;
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+}
+
+/* Staggered Delay for the 'One-by-One' effect */
+.timetable th {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timetable th:nth-child(1) { transition-delay: 0.1s; }
+.timetable th:nth-child(2) { transition-delay: 0.2s; }
+.timetable th:nth-child(3) { transition-delay: 0.3s; }
+.timetable th:nth-child(4) { transition-delay: 0.4s; } /* Break col */
+.timetable th:nth-child(5) { transition-delay: 0.5s; }
+.timetable th:nth-child(6) { transition-delay: 0.6s; }
+.timetable th:nth-child(7) { transition-delay: 0.7s; }
+
+/* Update these specific blocks in your style.css */
+
+.action-area {
+  margin-top: 1rem;      /* Small gap right below the table */
+  display: flex;
+  align-items: center;   /* Centers checkbox vertically with text */
+  justify-content: flex-start; /* Aligns to the left */
+  gap: 12px;
+  padding-left: 5px;     /* Matches the table start line */
+}
+
+.btn-victory {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--gold-accent, #D4AF37); /* Uses your gold variable */
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  background: rgba(212, 175, 55, 0.05);
+  transition: all 0.2s ease;
+}
+
+.btn-victory:checked {
+  background: var(--gold-accent, #D4AF37);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+.btn-victory:checked::after {
+  content: '✓';
+  position: absolute;
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+  left: 3px;
+  top: -2px;
+}
+
+.victory-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #94a3b8; /* Dimmed text color */
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+/* Lights up the text when the checkbox is clicked */
+.btn-victory:checked + .victory-label {
+  color: var(--gold-accent, #D4AF37);
+}
+
+/* Palette Styling */
+.palette-container {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.palette-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-dim);
+}
+
+.color-options {
+  display: flex;
+  gap: 1rem;
+}
+
+.color-tool {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.8rem;
+}
+
+.color-tool.active {
+  border-color: var(--gold-accent);
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot.green { background: #10b981; box-shadow: 0 0 10px #10b981; }
+.dot.red { background: #ef4444; box-shadow: 0 0 10px #ef4444; }
+.dot.pink { background: yellow; box-shadow: 0 0 10px yellow; }
+
+Table Header States
+.timetable th { cursor: cell; transition: all 0.3s ease; }
+
+.timetable th.state-green { 
+  background: rgba(16, 185, 129, 0.15) !important; 
+  border-color: #10b981 !important; 
+  color: #10b981 !important; 
+}
+
+.timetable th.state-red { 
+  background: rgba(239, 68, 68, 0.15) !important; 
+  border-color: #ef4444 !important; 
+  color: #c1121f !important; 
+}
+
+.timetable th.state-pink { 
+  background: rgba(233, 236, 72, 0.15) !important; 
+  border-color: yellow !important; 
+  color:yellow !important; 
+}
+
+/* Original State - What the table looks like after Undo */
+.timetable th {
+  background: rgba(255, 255, 255, 0.03); /* Default semi-transparent dark */
+  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+/* State Colors - Only applied when toggled */
+.state-green { 
+  background: rgba(16, 185, 129, 0.2) !important; 
+  color: #10b981 !important; 
+  border-color: #10b981 !important; 
+}
+
+/* Repeat similar for .state-red and .state-pink */
+
+.viewbutton {
+    /* 1. Typography & Spacing */
+    letter-spacing: 2px;          /* Increased for a more 'luxury' brand feel */
+    text-transform: uppercase;    /* Usually looks cleaner on action buttons */
+    font-size: 0.8rem;
+    font-weight: 700;
+    
+    /* 2. Colors & Borders */
+    background-color: #000;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4); /* Thinner, subtle border looks more modern than thick 3px */
+    
+    /* 3. The 'Space' Secret */
+    padding: 12px 28px;           /* Increased space: Top/Bottom 12px, Left/Right 28px */
+    border-radius: 8px;           /* Subtle rounding (modern) vs 0px (old) or 50px (pill) */
+    
+    /* 4. Smoothness */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    margin-top: 30px;
+}
+
+/* 5. The Interaction (Hover) */
+.viewbutton:hover {
+    background-color: white;
+    color: black;
+    border-color: white;
+    transform: translateY(-2px); /* Lifts up slightly on hover */
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+}
+
+.viewbutton:active {
+    transform: translateY(0px); /* Presses back down when clicked */
+}
+
+
+
+    /* Bottom Navigation */
+    .bottom-nav {
+      position: fixed;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(20, 20, 30, 0.85);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-color);
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      display: flex;
+      gap: 2.5rem;
+      z-index: 1000;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .bottom-nav a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+
+    .bottom-nav a:hover {
+      color: var(--primary);
+    }
+
+    #empty {
+      text-align: center;
+      color: var(--text-dim);
+      padding: 2rem;
+    }
+  
