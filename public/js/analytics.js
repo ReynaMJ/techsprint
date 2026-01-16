@@ -1,69 +1,40 @@
-import { auth, db } from "./firebase.js";
-import { onAuthStateChanged } from
-  "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import {
-  collection,
-  getDocs
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+const chartGrid = document.getElementById("chartGrid");
 
-const container = document.getElementById("analytics");
+const backendData = [
+  { subject: "OS", present: 10, total: 12 },
+  { subject: "DBMS", present: 4, total: 12 },
+  { subject: "MATHS", present: 80, total: 100 },
+  { subject: "SE", present: 9, total: 12 },
+  { subject: "CAO", present: 10, total: 12 },
+  { subject: "HONOURS", present: 9, total: 12 },
+  { subject: "ECONOMICS", present: 9, total: 12 },
+  { subject: "OS LAB", present: 11, total: 12 }
+];
 
-onAuthStateChanged(auth, async (user) => {
-  if (!user) return location.href = "/auth.html";
+backendData.forEach(item => {
+  const percentage = Math.round((item.present / item.total) * 100);
+  const absent = item.total - item.present;
 
-  const attendanceSnap = await getDocs(
-    collection(db, "attendance", user.uid, "days")
-  );
+  const donut = document.createElement("div");
+  donut.className = "donut";
+  donut.style.setProperty("--present", `${percentage}%`);
+const canSkip =
+  percentage > 75 ? "YES" :
+  percentage === 75 ? "RISKY" :
+  "NO";
 
-  const stats = {};
+donut.innerHTML = `
+  <div class="center">
+    <span>${percentage}%</span>
+    <small>${item.subject}</small>
+  </div>
 
-  attendanceSnap.forEach(dayDoc => {
-    dayDoc.ref.collection("classes").get().then(classes => {
-      classes.forEach(c => {
-        const { subject, status } = c.data();
-        if (!stats[subject]) stats[subject] = { A: 0, C: 0 };
+  <div class="tooltip">
+    Present: ${item.present}<br>
+    Absent: ${absent}<br>
+    Can I Skip <b>${canSkip}</b>
+  </div>
+`;
 
-        if (status !== "cancelled") {
-          stats[subject].C++;
-          if (status === "present" || status === "duty") {
-            stats[subject].A++;
-          }
-        }
-      });
-    });
-  });
-
-  // Small delay to wait for async loops
-  setTimeout(() => render(stats), 500);
+  chartGrid.appendChild(donut);
 });
-
-function render(stats) {
-  container.innerHTML = "";
-
-  Object.entries(stats).forEach(([subject, { A, C }]) => {
-    const T = 0.75;
-    const percent = ((A / C) * 100).toFixed(1);
-
-    let safeCuts = Math.floor((A / T) - C);
-    safeCuts = safeCuts < 0 ? 0 : safeCuts;
-
-    let needed = 0;
-    while ((A + needed) / (C + needed) < T) needed++;
-
-    const card = document.createElement("div");
-    card.className = "card";
-
-    card.innerHTML = `
-      <h3>${subject}</h3>
-      <p>Attendance: <b>${percent}%</b></p>
-      <p>Attended: ${A} / Conducted: ${C}</p>
-      <p class="${percent < 75 ? "low" : "ok"}">
-        ${percent < 75
-          ? `Need to attend next ${needed} classes`
-          : `Can miss ${safeCuts} more classes`}
-      </p>
-    `;
-
-    container.appendChild(card);
-  });
-}
