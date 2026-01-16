@@ -2,35 +2,159 @@
 <html>
 <head>
   <title>Settings</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #7c3aed;
+      --bg-dark: #050507;
+      --card-bg: rgba(17, 17, 25, 0.75);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --text-main: #ffffff;
+      --text-dim: #94a3b8;
+      --gold-accent: #D4AF37;
+    }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-main);
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .settings-container {
+      width: 420px;
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 2.5rem;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+    }
+
+    .settings-container h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 2rem;
+      margin-top: 0;
+    }
+
+    .settings-container label {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 1.5rem;
+    }
+
+    .settings-container input {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.75rem 0.9rem;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      outline: none;
+      transition: all 0.25s ease;
+    }
+
+    .settings-container input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.25);
+    }
+
+    .settings-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .settings-actions button {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      padding: 0.8rem;
+      border-radius: 14px;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #save {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+    }
+
+    #save:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px rgba(124, 58, 237, 0.35);
+    }
+
+    #reset {
+      border-color: var(--gold-accent);
+      color: var(--gold-accent);
+    }
+
+    #reset:hover {
+      background: rgba(212, 175, 55, 0.1);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.25);
+    }
+
+    #logout {
+      border-color: rgba(239, 68, 68, 0.4);
+      color: #ef4444;
+    }
+
+    #logout:hover {
+      background: rgba(239, 68, 68, 0.1);
+      box-shadow: 0 0 15px rgba(239, 68, 68, 0.25);
+    }
+
+    .settings-actions button:active {
+      transform: translateY(0);
+    }
+  </style>
 </head>
 <body>
 
-  <h1>Settings</h1>
+  <div class="settings-container">
+    <h1>Settings</h1>
 
-  <label>
-    Target Attendance (%):
-    <input type="number" id="target" min="50" max="100" />
-  </label>
+    <label for="target">
+      Target Attendance (%)
+      <input type="number" id="target" min="50" max="100" placeholder="e.g. 75" />
+    </label>
 
-  <br><br>
+    <label for="start">
+      Semester Start
+      <input type="date" id="start" />
+    </label>
 
-  <label>
-    Semester Start:
-    <input type="date" id="start" />
-  </label>
+    <label for="end">
+      Semester End
+      <input type="date" id="end" />
+    </label>
 
-  <br><br>
-
-  <label>
-    Semester End:
-    <input type="date" id="end" />
-  </label>
-
-  <br><br>
-
-  <button id="save">Save Changes</button>
-  <button id="reset">Reset Timetable</button>
-  <button id="logout">Logout</button>
+    <div class="settings-actions">
+      <button id="save">Save Changes</button>
+      <button id="reset">Reset Timetable</button>
+      <button id="logout">Logout</button>
+    </div>
+  </div>
 
   <script type="module" src="js/settings.js"></script>
 </body>
