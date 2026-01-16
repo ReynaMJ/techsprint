@@ -1,35 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Today</title>
-  <style>
-    .card {
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      padding: 15px;
-      margin: 10px 0;
-    }
-    button {
-      margin-right: 5px;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class Cut Cheythaloo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="home.css">
+  
 </head>
 <body>
 
-  <h1>Today’s Classes</h1>
-  <p id="date"></p>
+    <main class="app-container">
+<nav class="navbar">
+  <div class="logo">
+    <span class="brand">ClassCut</span>
+    <span class="coolors-text">
+      <span>C</span><span>h</span><span>e</span><span>y</span><span>t</span><span>h</span><span>a</span><span>l</span><span>o</span>
+    </span>
+  </div>
+</nav>
 
-  <div id="classes"></div>
 
-  <p id="empty" style="display:none;">🎉 No classes today!</p>
+<div class="date-container">
+        <label for="date">Current Session:</label>
+        <input type="date" id="date" value="2026-01-04" />
+      </div>
+    </section><br>
+    <div class="palette-container">
+  <span class="palette-label">Select Status:</span>
+  <div class="color-options">
+    <div class="color-tool active" data-color="green" title="Attended">
+      <div class="dot green"></div> <span>Attended</span>
+    </div>
+    <div class="color-tool" data-color="red" title="Skipped">
+      <div class="dot red"></div> <span>Skipped</span>
+    </div>
+    <div class="color-tool" data-color="pink" title="Cancelled">
+      <div class="dot pink"></div> <span>Cancelled</span>
+    </div>
+  </div>
+</div>
+<br>
+    <section class="timetable-section">
+      <div class="section-header">
+        <h2 class="table-heading text-glow">Today’s Timetable</h2>
+        <span class="day-tag">Monday</span>
+      </div>
 
-  <nav>
-    <a href="timetable.html">Timetable</a> |
-    <a href="calendar.html">Calendar</a> |
-    <a href="analytics.html">Analytics</a> |
+      <div class="table-wrapper">
+        <table class="timetable">
+          <thead>
+            <tr>
+              <th>
+  <span class="period-num">01</span><br>
+  <span class="subject">Subject</span>
+</th>
+
+<th>
+  <span class="period-num">02</span><br>
+  <span class="subject">Subject</span>
+</th>
+<th>
+  <span class="period-num">02</span><br>
+  <span class="subject">Subject</span>
+</th>
+<th class="break-col"><span class="break-text">Break</span></th>
+<th>
+  <span class="period-num">02</span><br>
+  <span class="subject">Subject</span>
+</th>
+<th>
+  <span class="period-num">02</span><br>
+  <span class="subject">Subject</span>
+</th>
+<th>
+  <span class="period-num">02</span><br>
+  <span class="subject">Subject</span>
+</th>
+
+
+            </tr>
+          </thead>
+        </table>
+
+</div>
+      </div>
+  <div class="action-area">
+  <input type="checkbox" id="victory-btn" class="btn-victory">
+    ATTENDED ALL CLASSES TODAY 
+    </section>
+<br>
+
+  <nav class="bottom-nav">
+    <a href="analytics.html">Analytics</a>
+    <a href="timetable.html">Timetable</a>
     <a href="settings.html">Settings</a>
   </nav>
-
+</main>
+  <script src="logo.js"></script>
   <script type="module" src="js/home.js"></script>
 </body>
 </html>
